@@ -24,6 +24,16 @@ const onAddItemSubmit = (e) => {
    return;
   }
 
+// Check for edit mode 
+   if(isEditMode) {
+      const itemToEdit = itemList.querySelector('.edit-mode');
+
+      removeItemFromStorage(itemToEdit.textContent);
+      itemToEdit.classList.remove('edit-mode');
+      itemToEdit.remove();
+      isEditMode = false;
+   }
+
  // Add item to DOM
    addItemToDOM(newItem);
  
@@ -148,6 +158,7 @@ function filterItems(e) {
 
 function checkUI() {
    const items = itemList.querySelectorAll('li');
+   itemInput.value = '';
    
   if(items.length === 0) {
      clearItem.style.display = 'none';
@@ -156,6 +167,11 @@ function checkUI() {
      clearItem.style.display = 'block';
      filterItem.style.display = 'block';
   }
+
+  formBtn.innerHTML = `<i class="fa-solid fa-plus"></i> Add Item`;
+  formBtn.style.backgroundColor = '#333';
+
+  isEditMode = false;
 }
 
 // Initialize app
