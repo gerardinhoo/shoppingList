@@ -1,6 +1,8 @@
 Shopping List 
 
-Technology used: DOM MANIPULATION JavaScript
+Technology used: JavaScript
+
+Working with Dom Manipulation, Events, Local Storage
   
 Deployed with Netlify:  https://zippy-khapse-410d55.netlify.app/
 
